@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Explorando la parábola | Matemáticas</title>
+<style>
+:root{--bg:#f7f8fb;--surface:#fff;--text:#172033;--muted:#667085;--primary:#315efb;--primary2:#244bd6;--accent:#7c3aed;--border:#d9deea;--shadow:0 12px 35px rgba(24,34,54,.10);--radius:20px}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:linear-gradient(180deg,#f8f9fc 0%,#eef2f8 100%);color:var(--text);line-height:1.55}.wrap{max-width:1180px;margin:auto;padding:0 22px}header{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(247,248,251,.9);border-bottom:1px solid var(--border)}.topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}.brand{display:flex;align-items:center;gap:12px;font-weight:800}.brand-mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent));color:white;font-size:20px;box-shadow:0 8px 18px rgba(49,94,251,.25)}nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}nav a{text-decoration:none;padding:8px 11px;border-radius:999px;color:#344054;font-size:.92rem}nav a:hover{background:#e8ecf7}.hero{padding:64px 0 42px}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;background:#e8edff;color:#244bd6;padding:7px 11px;border-radius:999px;font-weight:700;font-size:.86rem}h1{font-size:clamp(2.2rem,5vw,4.6rem);line-height:1.02;letter-spacing:-.045em;margin:18px 0}.lead{font-size:1.15rem;color:#475467;max-width:720px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{border:0;border-radius:14px;padding:12px 18px;font-weight:800;cursor:pointer;background:var(--primary);color:white;box-shadow:0 8px 18px rgba(49,94,251,.20)}.btn:hover{background:var(--primary2)}.btn.secondary{background:white;color:#243047;border:1px solid var(--border);box-shadow:none}.hero-card,.card{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:var(--shadow)}.trajectory{height:280px;border-radius:20px;background:linear-gradient(180deg,#eef4ff,#fff);position:relative;overflow:hidden}.trajectory svg{width:100%;height:100%}.ball{position:absolute;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0 12%,#ff6b35 13% 42%,#c2410c 43%);left:8%;bottom:16%;animation:throw 4s ease-in-out infinite;box-shadow:0 6px 14px rgba(0,0,0,.15)}@keyframes throw{0%{left:8%;bottom:16%}50%{left:48%;bottom:72%}100%{left:88%;bottom:16%}}section{padding:58px 0}.section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:26px}.section-head h2{font-size:clamp(1.7rem,3.2vw,2.7rem);letter-spacing:-.03em;margin:0}.section-head p{max-width:640px;color:var(--muted);margin:0}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card h3{margin-top:0}.question-list{display:grid;gap:10px;margin-top:16px}.question{padding:14px 16px;border-radius:14px;background:#f8fafc;border:1px solid var(--border)}.formula{font-family:"Cambria Math",serif;font-size:1.35rem;background:#101828;color:white;border-radius:14px;padding:12px 16px;display:inline-block}.graph-panel{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}.graph{width:100%;height:380px;background:white;border:1px solid var(--border);border-radius:18px}.controls{display:grid;gap:16px}.control-row{display:grid;gap:8px}input[type=range]{width:100%}.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#f2f4f7;color:#344054;font-size:.86rem;font-weight:700}.concept{position:relative;overflow:hidden}.concept::after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-28px;top:-28px;background:#eef2ff}.concept .icon{font-size:1.6rem;position:relative;z-index:1}details{border:1px solid var(--border);border-radius:14px;background:white;padding:14px 16px}details+details{margin-top:10px}summary{cursor:pointer;font-weight:800}.step{display:none}.step.active{display:block}.step-nav{display:flex;justify-content:space-between;gap:12px;margin-top:18px}.route-card{border-top:5px solid var(--primary)}.route-card.support{border-top-color:#16a34a}.route-card.practice{border-top-color:#d97706}.route-card.challenge{border-top-color:#7c3aed}.choice{display:block;width:100%;text-align:left;margin:8px 0;padding:11px 12px;border-radius:12px;border:1px solid var(--border);background:white;cursor:pointer}.choice:hover{background:#f8fafc}.feedback{margin-top:10px;padding:11px 12px;border-radius:12px;display:none}.feedback.ok{display:block;background:#ecfdf3;color:#166534;border:1px solid #bbf7d0}.feedback.no{display:block;background:#fff7ed;color:#9a3412;border:1px solid #fed7aa}.challenge-box{background:linear-gradient(135deg,#172033,#27375d);color:white;border-radius:24px;padding:24px}.quiz-q{padding:18px 0;border-bottom:1px solid var(--border)}.quiz-q label{display:block;margin:8px 0;padding:10px 12px;background:#f8fafc;border-radius:12px;cursor:pointer}.result{margin-top:16px;padding:16px;border-radius:14px;display:none}textarea{width:100%;min-height:100px;border:1px solid var(--border);border-radius:14px;padding:12px;font:inherit;resize:vertical}.ticket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.teacher-note{background:white;border:1px dashed #aeb8cc;border-radius:18px;padding:18px;margin-top:22px}.small{font-size:.9rem;color:var(--muted)}footer{padding:36px 0 54px;color:#667085}.progress{position:fixed;left:0;top:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));width:0;z-index:50}@media(max-width:900px){.hero-grid,.grid-2,.graph-panel{grid-template-columns:1fr}.grid-3,.ticket-grid{grid-template-columns:1fr}nav{display:none}h1{font-size:2.8rem}}
+
+.reto-input{width:62px;padding:8px;border:1px solid var(--border);border-radius:10px;text-align:center;font:inherit}
+.challenge-box input[type=text]{width:100%;padding:12px;border-radius:12px;border:1px solid #d9deea;font:inherit}
+
+.reto-cell{display:flex;align-items:center;justify-content:center;gap:6px;min-width:90px}
+.live-check{transition:border-color .2s,box-shadow .2s,background .2s}
+.live-check.correct{border-color:#16a34a !important;background:#f0fdf4 !important;box-shadow:0 0 0 2px rgba(22,163,74,.12)}
+.live-check.incorrect{border-color:#dc2626 !important;background:#fef2f2 !important;box-shadow:0 0 0 2px rgba(220,38,38,.10)}
+.check-mark{font-weight:900;font-size:1.15rem;min-width:18px}
+.check-mark.ok{color:#16a34a}
+.check-mark.bad{color:#dc2626}
+.challenge-box input[type=text]{width:100%;padding:12px;border-radius:12px;border:1px solid #d9deea;font:inherit}
+
+.reto-process{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.reto-step-card{
+  display:flex;gap:11px;align-items:flex-start;
+  background:rgba(255,255,255,.96);color:#172033;
+  border-radius:14px;padding:13px;border:1px solid rgba(255,255,255,.35)
+}
+.reto-step-card p{margin:3px 0 0;font-size:.88rem;color:#667085}
+.reto-letter{
+  flex:0 0 30px;width:30px;height:30px;border-radius:50%;
+  display:grid;place-items:center;background:#e8edff;color:#244bd6;font-weight:900
+}
+@media(max-width:700px){.reto-process{grid-template-columns:1fr}}
+
+
+.reto-answer-block{
+  background:rgba(255,255,255,.97);
+  color:#172033;
+  border-radius:15px;
+  padding:14px;
+  margin-top:12px;
+  border:1px solid rgba(255,255,255,.4);
+}
+.reto-answer-block label,
+.reto-answer-block > strong{
+  display:block;
+  font-size:1rem;
+  margin-bottom:3px;
+}
+.reto-help{
+  margin:0 0 9px;
+  font-size:.88rem;
+  color:#667085;
+}
+.reto-answer-block input[type=text],
+.reto-answer-block select{
+  width:100%;
+  padding:11px 12px;
+  border-radius:11px;
+  border:1px solid #d9deea;
+  font:inherit;
+  background:#fff;
+  color:#172033;
+}
+.reto-answer-block input::placeholder{color:#98a2b3}
+.reto-cell{
+  display:grid;
+  grid-template-columns:1fr;
+  justify-items:center;
+  gap:5px;
+  min-width:76px;
+}
+.cell-label{
+  font-size:.78rem;
+  font-weight:800;
+  color:#475467;
+}
+.reto-input{
+  width:58px !important;
+  text-align:center;
+  padding:7px !important;
+}
+
+
+.mission-graph-locked{display:none !important}
+.mission-lock{
+  min-height:380px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:30px;
+  border:1px dashed #cbd5e1;
+  border-radius:18px;
+  background:#f8fafc;
+  color:#667085;
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header><div class="wrap topbar"><div class="brand"><div class="brand-mark">ƒ</div><div>Explorando la parábola <span class="small">| Matemáticas</span></div></div><nav><a href="#inicio">Inicio</a><a href="#exploracion">Exploración</a><a href="#comprension">Comprensión</a><a href="#practica">Práctica</a><a href="#reto">Reto</a><a href="#evaluacion">Evaluación</a></nav></div></header>
+<main>
+<section class="hero" id="inicio"><div class="wrap hero-grid"><div><span class="eyebrow">📐 Ruta interactiva de aprendizaje</span><h1>Descubre cómo una parábola cuenta una historia.</h1><p class="lead">Observa, compara, interpreta y practica las funciones cuadráticas a tu ritmo. Esta experiencia está diseñada para estudiantes de grado noveno.</p><div class="hero-actions"><a class="btn" href="#exploracion" style="text-decoration:none">Comenzar exploración</a><a class="btn secondary" href="#comprension" style="text-decoration:none">Repasar conceptos</a></div></div><div class="hero-card"><div class="trajectory"><svg viewBox="0 0 500 280" role="img" aria-label="Trayectoria parabólica"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#315efb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><path d="M40,230 Q250,18 460,230" fill="none" stroke="url(#g)" stroke-width="5" stroke-dasharray="10 10"/><line x1="34" y1="235" x2="470" y2="235" stroke="#98a2b3" stroke-width="2"/><line x1="250" y1="42" x2="250" y2="235" stroke="#cbd5e1" stroke-dasharray="6 6"/><circle cx="250" cy="126" r="6" fill="#7c3aed"/><text x="262" y="118" font-size="15" fill="#475467">punto más alto</text></svg><div class="ball"></div></div><div class="question-list"><div class="question">🤔 ¿Qué forma tiene la trayectoria de la pelota?</div><div class="question">🎯 ¿Qué podría representar el punto más alto?</div><div class="question">🌎 ¿Dónde has visto una forma parecida en la vida cotidiana?</div></div></div></div></section>
+<section id="exploracion"><div class="wrap"><div class="section-head"><div><span class="pill">1 · Explora</span><h2>¿Qué pasa cuando cambia la función?</h2></div><p>Mueve el control de <strong>a</strong> y observa cómo cambia la parábola. Primero observa; después compara con la explicación.</p></div><div class="graph-panel"><div class="card"><canvas id="graphA" class="graph" width="760" height="420"></canvas></div><div class="card controls"><div class="control-row"><label for="aRange"><strong>Coeficiente a:</strong> <span id="aValue">1</span></label><input id="aRange" type="range" min="-3" max="3" value="1" step="0.1" /></div><div class="formula" id="formulaA">f(x) = 1x²</div><div class="question-list"><div class="question">¿Qué ocurre cuando <strong>a &gt; 0</strong>?</div><div class="question">¿Qué ocurre cuando <strong>a &lt; 0</strong>?</div><div class="question">¿Qué notas cuando |a| aumenta?</div></div><details><summary>Ver explicación después de explorar</summary><p>Si <strong>a es positivo</strong>, la parábola abre hacia arriba. Si <strong>a es negativo</strong>, abre hacia abajo. Cuando <strong>|a| aumenta</strong>, la parábola se hace más cerrada; cuando se acerca a 0, se hace más abierta.</p></details></div></div></div></section>
+<section id="comprension"><div class="wrap"><div class="section-head"><div><span class="pill">2 · Comprende</span><h2>Conozcamos la función cuadrática</h2></div><p>Una función cuadrática se expresa como <strong>f(x)=ax²+bx+c</strong>, con <strong>a ≠ 0</strong>.</p></div><div class="grid-3"><div class="card concept"><div class="icon">↕️</div><h3>Concavidad</h3><p>El signo de <strong>a</strong> indica si la parábola abre hacia arriba o hacia abajo.</p></div><div class="card concept"><div class="icon">📍</div><h3>Vértice</h3><p>Es el punto máximo o mínimo de la parábola.</p></div><div class="card concept"><div class="icon">🪞</div><h3>Eje de simetría</h3><p>Es la recta vertical que divide la parábola en dos partes simétricas.</p></div><div class="card concept"><div class="icon">✖️</div><h3>Cortes con el eje X</h3><p>Son las raíces de la función, cuando existen valores de x para los cuales f(x)=0.</p></div><div class="card concept"><div class="icon">➕</div><h3>Corte con el eje Y</h3><p>Se obtiene evaluando x=0. En la forma general corresponde al valor de <strong>c</strong>.</p></div><div class="card concept"><div class="icon">🔎</div><h3>Coeficientes</h3><p><strong>a</strong> controla la apertura y concavidad; <strong>b</strong> y <strong>c</strong> influyen en la posición de la gráfica.</p></div></div><div class="teacher-note"><strong>Idea clave:</strong> la gráfica de toda función cuadrática es una parábola, pero no todas las parábolas tienen la misma posición, apertura o puntos de corte.</div></div></section>
+<section id="ejemplo">
+<div class="wrap">
+  <div class="section-head">
+    <div>
+      <span class="pill">3 · Ejemplo guiado</span>
+      <h2>Analicemos f(x)=x²−4x+3 con el procedimiento de clase</h2>
+    </div>
+    <p>Seguimos la misma ruta trabajada en el aula: factorizar, encontrar raíces, ubicar cortes, hallar el eje de simetría y el vértice, reconocer la apertura, completar la tabla y construir la parábola.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div id="guidedSteps">
+
+        <div class="step active">
+          <h3>A. Factoriza la expresión</h3>
+          <p>Partimos de:</p>
+          <p><span class="formula">f(x)=x²−4x+3</span></p>
+          <p>Para encontrar los cortes con el eje x hacemos <strong>y=0</strong>:</p>
+          <p><strong>x²−4x+3=0</strong></p>
+          <p>Buscamos dos números que multiplicados den <strong>3</strong> y sumados den <strong>−4</strong>: <strong>−1 y −3</strong>.</p>
+          <p><span class="formula">(x−1)(x−3)=0</span></p>
+        </div>
+
+        <div class="step">
+          <h3>B. Encuentra las raíces</h3>
+          <p>Igualamos cada factor a cero:</p>
+          <p><strong>x−1=0 → x₁=1</strong></p>
+          <p><strong>x−3=0 → x₂=3</strong></p>
+          <div class="callout">Las raíces son los valores de x para los cuales <strong>y=0</strong>.</div>
+        </div>
+
+        <div class="step">
+          <h3>C. Escribe los cortes con el eje x</h3>
+          <p>Las raíces se convierten en puntos de la gráfica:</p>
+          <p><span class="formula">(1,0) &nbsp;&nbsp; y &nbsp;&nbsp; (3,0)</span></p>
+          <p>Esos son los lugares donde la parábola corta el eje x.</p>
+        </div>
+
+        <div class="step">
+          <h3>D. Halla el eje de simetría usando el punto medio de las raíces</h3>
+          <p>Como la parábola es simétrica, el eje queda exactamente a la mitad entre las dos raíces.</p>
+          <p><strong>x = (x₁+x₂)/2</strong></p>
+          <p><strong>x = (1+3)/2 = 4/2 = 2</strong></p>
+          <div class="callout">El eje de simetría es <strong>x=2</strong>.</div>
+        </div>
+
+        <div class="step">
+          <h3>E. Reemplaza el eje de simetría para hallar el vértice</h3>
+          <p>Sustituimos <strong>x=2</strong> en la función:</p>
+          <p><strong>y=(2)²−4(2)+3</strong></p>
+          <p><strong>y=4−8+3</strong></p>
+          <p><strong>y=−1</strong></p>
+          <p><span class="formula">V=(2,−1)</span></p>
+        </div>
+
+        <div class="step">
+          <h3>F. ¿Hacia dónde abre?</h3>
+          <p>Observamos el número que acompaña a x².</p>
+          <p>En <strong>f(x)=x²−4x+3</strong>, tenemos <strong>a=1</strong>.</p>
+          <p>Como <strong>a&gt;0</strong>, la parábola <strong>abre hacia arriba</strong>.</p>
+        </div>
+
+        <div class="step">
+          <h3>G. Completa la tabla y construye la parábola</h3>
+          <p>Reemplazamos cada valor de x en la función para obtener y:</p>
+          <table class="math-table" aria-label="Tabla de valores de la función">
+            <tr><th>x</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+            <tr><th>y</th><td>3</td><td>0</td><td>−1</td><td>0</td><td>3</td></tr>
+          </table>
+          <p style="margin-top:14px">Puntos: <strong>(0,3), (1,0), (2,−1), (3,0), (4,3)</strong>.</p>
+          <div class="callout">Ubicamos los puntos en el plano y los unimos con una <strong>curva suave</strong>, no con segmentos rectos.</div>
+        </div>
+
+      </div>
+
+      <div class="step-nav">
+        <button class="btn secondary" id="prevStep">Anterior</button>
+        <span class="pill" id="stepCount">1 / 7</span>
+        <button class="btn" id="nextStep">Siguiente</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <canvas id="graphExample" class="graph" width="760" height="420" aria-label="Gráfica de f de x igual a x al cuadrado menos cuatro x más tres"></canvas>
+      <p class="small" style="margin-top:10px">La gráfica permite comprobar visualmente las raíces (1,0) y (3,0), el eje de simetría x=2 y el vértice V(2,−1).</p>
+    </div>
+  </div>
+</div>
+</section>
+<section id="practica">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="pill">4 · Práctica adaptativa</span>
+        <h2>Elige tu ruta</h2>
+      </div>
+      <p>Puedes comenzar por la ruta que mejor responda a tu nivel actual. Cada ruta tiene <strong>5 ejercicios</strong> y puedes cambiar de ruta cuando lo necesites.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card route-card support">
+        <h3>🟢 Necesito apoyo</h3>
+        <p>Ejercicios básicos con pistas para reconocer los elementos esenciales.</p>
+
+        <p><strong>1.</strong> En f(x)=−2x²+5x−1, ¿cuál es a?</p>
+        <button class="choice" data-answer="wrong" data-target="f1">a = 5</button>
+        <button class="choice" data-answer="correct" data-target="f1">a = −2</button>
+        <button class="choice" data-answer="wrong" data-target="f1">a = −1</button>
+        <div class="feedback" id="f1"></div>
+
+        <p><strong>2.</strong> Si a&lt;0, la parábola…</p>
+        <button class="choice" data-answer="correct" data-target="f2">abre hacia abajo</button>
+        <button class="choice" data-answer="wrong" data-target="f2">abre hacia arriba</button>
+        <div class="feedback" id="f2"></div>
+
+        <p><strong>3.</strong> En f(x)=x²−5x+6, ¿cuál es c?</p>
+        <button class="choice" data-answer="wrong" data-target="f7">c = 1</button>
+        <button class="choice" data-answer="wrong" data-target="f7">c = −5</button>
+        <button class="choice" data-answer="correct" data-target="f7">c = 6</button>
+        <div class="feedback" id="f7"></div>
+
+        <p><strong>4.</strong> ¿Cuál expresión es una función cuadrática?</p>
+        <button class="choice" data-answer="wrong" data-target="f8">y = 4x + 3</button>
+        <button class="choice" data-answer="correct" data-target="f8">y = x² + 2x − 3</button>
+        <button class="choice" data-answer="wrong" data-target="f8">y = 5/x</button>
+        <div class="feedback" id="f8"></div>
+
+        <p><strong>5.</strong> Si las raíces son 2 y 6, los cortes con el eje x son:</p>
+        <button class="choice" data-answer="correct" data-target="f9">(2,0) y (6,0)</button>
+        <button class="choice" data-answer="wrong" data-target="f9">(0,2) y (0,6)</button>
+        <button class="choice" data-answer="wrong" data-target="f9">(2,6) y (6,2)</button>
+        <div class="feedback" id="f9"></div>
+      </div>
+
+      <div class="card route-card practice">
+        <h3>🟡 Estoy listo para practicar</h3>
+        <p>Relaciona factorización, raíces, eje de simetría y vértice.</p>
+
+        <p><strong>1.</strong> Para f(x)=x²−6x+8, el eje de simetría es:</p>
+        <button class="choice" data-answer="wrong" data-target="f3">x = 6</button>
+        <button class="choice" data-answer="correct" data-target="f3">x = 3</button>
+        <button class="choice" data-answer="wrong" data-target="f3">x = −3</button>
+        <div class="feedback" id="f3"></div>
+
+        <p><strong>2.</strong> En f(x)=3x²+2, el corte con el eje Y es:</p>
+        <button class="choice" data-answer="correct" data-target="f4">(0,2)</button>
+        <button class="choice" data-answer="wrong" data-target="f4">(2,0)</button>
+        <div class="feedback" id="f4"></div>
+
+        <p><strong>3.</strong> La factorización de x²−7x+12 es:</p>
+        <button class="choice" data-answer="correct" data-target="f10">(x−3)(x−4)</button>
+        <button class="choice" data-answer="wrong" data-target="f10">(x+3)(x+4)</button>
+        <button class="choice" data-answer="wrong" data-target="f10">(x−2)(x−6)</button>
+        <div class="feedback" id="f10"></div>
+
+        <p><strong>4.</strong> Si las raíces son −1 y 5, el eje de simetría es:</p>
+        <button class="choice" data-answer="wrong" data-target="f11">x = 4</button>
+        <button class="choice" data-answer="correct" data-target="f11">x = 2</button>
+        <button class="choice" data-answer="wrong" data-target="f11">x = −2</button>
+        <div class="feedback" id="f11"></div>
+
+        <p><strong>5.</strong> En f(x)=x²−4x+3, si x=2 entonces y vale:</p>
+        <button class="choice" data-answer="wrong" data-target="f12">1</button>
+        <button class="choice" data-answer="correct" data-target="f12">−1</button>
+        <button class="choice" data-answer="wrong" data-target="f12">3</button>
+        <div class="feedback" id="f12"></div>
+      </div>
+
+      <div class="card route-card challenge">
+        <h3>🔵 Quiero un reto</h3>
+        <p>Interpreta y aplica lo aprendido en situaciones más exigentes.</p>
+
+        <p><strong>1.</strong> Una parábola tiene vértice (2,−1) y abre hacia arriba. ¿Qué afirmación es correcta?</p>
+        <button class="choice" data-answer="correct" data-target="f5">El vértice representa un mínimo.</button>
+        <button class="choice" data-answer="wrong" data-target="f5">El vértice representa un máximo.</button>
+        <div class="feedback" id="f5"></div>
+
+        <p><strong>2.</strong> Si una función cuadrática no corta el eje X, entonces:</p>
+        <button class="choice" data-answer="wrong" data-target="f6">No es cuadrática.</button>
+        <button class="choice" data-answer="correct" data-target="f6">Puede ser cuadrática y no tener raíces reales.</button>
+        <div class="feedback" id="f6"></div>
+
+        <p><strong>3.</strong> Una parábola abre hacia abajo y su vértice es V(4,9). En contexto, 9 representa:</p>
+        <button class="choice" data-answer="correct" data-target="f13">El valor máximo de y.</button>
+        <button class="choice" data-answer="wrong" data-target="f13">Una raíz.</button>
+        <button class="choice" data-answer="wrong" data-target="f13">El eje de simetría.</button>
+        <div class="feedback" id="f13"></div>
+
+        <p><strong>4.</strong> Si f(x)=(x−2)(x−8), el eje de simetría es:</p>
+        <button class="choice" data-answer="wrong" data-target="f14">x = 3</button>
+        <button class="choice" data-answer="correct" data-target="f14">x = 5</button>
+        <button class="choice" data-answer="wrong" data-target="f14">x = 10</button>
+        <div class="feedback" id="f14"></div>
+
+        <p><strong>5.</strong> Si una parábola corta el eje x en x=1 y x=7, ¿dónde queda su eje de simetría?</p>
+        <button class="choice" data-answer="wrong" data-target="f15">x = 3</button>
+        <button class="choice" data-answer="correct" data-target="f15">x = 4</button>
+        <button class="choice" data-answer="wrong" data-target="f15">x = 8</button>
+        <div class="feedback" id="f15"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="reto">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="pill">5 · Reto aplicado</span>
+        <h2>🛹 Reto: La pista perfecta</h2>
+      </div>
+      <p>Analiza el perfil de una pista de skate en forma de U usando todo lo aprendido sobre funciones cuadráticas.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="challenge-box">
+        <h3>Tu misión</h3>
+        <p>El perfil de la pista está representado por:</p>
+        <div class="formula">y = x² − 10x + 21</div>
+        <p>La línea <strong>y=0</strong> representa el nivel de referencia. Resuelve cada paso para descubrir los puntos importantes de la parábola.</p>
+
+        <div class="reto-answer-block">
+          <label for="retoFactor"><strong>A. Factorización</strong></label>
+          <p class="reto-help">Haz y=0 y escribe la expresión factorizada.</p>
+          <input id="retoFactor" type="text" placeholder="Ejemplo: (x−2)(x−5)">
+        </div>
+
+        <div class="reto-answer-block">
+          <label for="retoRaices"><strong>B. Raíces</strong></label>
+          <p class="reto-help">Encuentra los dos valores de x que hacen que y=0.</p>
+          <input id="retoRaices" type="text" placeholder="Ejemplo: x₁=2, x₂=5">
+        </div>
+
+        <div class="reto-answer-block">
+          <label for="retoCortes"><strong>C. Cortes con el eje x</strong></label>
+          <p class="reto-help">Escribe las raíces como puntos del plano cartesiano.</p>
+          <input id="retoCortes" type="text" placeholder="Ejemplo: (2,0) y (5,0)">
+        </div>
+
+        <div class="reto-answer-block">
+          <label for="retoEje"><strong>D. Eje de simetría</strong></label>
+          <p class="reto-help">Calcula el punto medio entre las dos raíces.</p>
+          <input id="retoEje" type="text" placeholder="Ejemplo: x=3">
+        </div>
+
+        <div class="reto-answer-block">
+          <label for="retoVertice"><strong>E. Vértice</strong></label>
+          <p class="reto-help">Reemplaza el valor del eje de simetría en la función.</p>
+          <input id="retoVertice" type="text" placeholder="Ejemplo: V(3,−4)">
+        </div>
+
+        <div class="reto-answer-block">
+          <label for="retoApertura"><strong>F. Apertura</strong></label>
+          <p class="reto-help">Observa el signo del coeficiente a y escribe hacia dónde abre.</p>
+          <input id="retoApertura" type="text" placeholder="Ejemplo: abre hacia arriba">
+        </div>
+
+        <div class="reto-answer-block">
+          <strong>G. Tabla de valores</strong>
+          <p class="reto-help">Reemplaza los <strong>5 valores de x</strong> en <strong>y=x²−10x+21</strong> y escribe el valor de y. Cada casilla mostrará ✅ o ❌. Cuando completes todo correctamente, estos mismos 5 puntos aparecerán en la gráfica.</p>
+
+          <table class="math-table" style="color:#172033;background:#fff;margin-top:10px">
+            <tr><th>x</th><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
+            <tr>
+              <th>y</th>
+              <td><div class="reto-cell"><span class="cell-label">y(3)</span><input class="reto-input live-check" data-x="3" data-ans="0" placeholder="valor"><span class="check-mark"></span></div></td>
+              <td><div class="reto-cell"><span class="cell-label">y(4)</span><input class="reto-input live-check" data-x="4" data-ans="-3" placeholder="valor"><span class="check-mark"></span></div></td>
+              <td><div class="reto-cell"><span class="cell-label">y(5)</span><input class="reto-input live-check" data-x="5" data-ans="-4" placeholder="valor"><span class="check-mark"></span></div></td>
+              <td><div class="reto-cell"><span class="cell-label">y(6)</span><input class="reto-input live-check" data-x="6" data-ans="-3" placeholder="valor"><span class="check-mark"></span></div></td>
+              <td><div class="reto-cell"><span class="cell-label">y(7)</span><input class="reto-input live-check" data-x="7" data-ans="0" placeholder="valor"><span class="check-mark"></span></div></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="reto-answer-block">
+          <label for="retoDecision"><strong>H. Interpretación final</strong></label>
+          <p class="reto-help">Si y=0 es el nivel de referencia, ¿la pista alcanza una profundidad de al menos 3 unidades?</p>
+          <select id="retoDecision">
+            <option value="">Selecciona una respuesta</option>
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <button class="btn" id="checkReto" style="margin-top:16px">🏁 Comprobar misión completa</button>
+        <div class="feedback" id="retoFeedback"></div>
+      </div>
+
+      <div class="card">
+        <div id="missionLock" class="mission-lock">
+          <div>
+            <div style="font-size:2rem">🔒</div>
+            <strong>Gráfica bloqueada</strong>
+            <p class="small">Completa A–F, responde H y consigue todos los ✅ verdes de la tabla para revelar la gráfica.</p>
+          </div>
+        </div>
+        <canvas id="graphSkater" class="graph mission-graph-locked" width="760" height="420" aria-label="Gráfica de la pista de skate"></canvas>
+        <p id="missionGraphNote" class="small mission-graph-locked" style="margin-top:10px">Gráfica de y=x²−10x+21 con los 5 puntos obtenidos en la tabla.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="evaluacion">
+<div class="wrap">
+  <div class="section-head">
+    <div>
+      <span class="pill">6 · Comprueba lo aprendido</span>
+      <h2>Evaluación de 10 puntos</h2>
+    </div>
+    <p>Escribe tu nombre, responde las diez preguntas y envía el intento.</p>
+  </div>
+
+  <div class="card">
+    <form id="quizForm">
+      <div class="student-fields">
+        <div class="field">
+          <label for="studentName"><strong>Nombre completo del estudiante *</strong></label>
+          <input id="studentName" type="text" required placeholder="Ej.: Laura Gómez">
+        </div>
+        <div class="field">
+          <label for="studentGroup"><strong>Grupo</strong></label>
+          <input id="studentGroup" name="studentGroup" type="text" inputmode="numeric" pattern="9-[0-9]{1,2}" title="Escribe el grupo con formato 9-1, 9-2, 9-3..." placeholder="Ej.: 9-1" required>
+        </div>
+      </div>
+
+      <div class="quiz-q"><p><strong>1.</strong> ¿Cuál expresión representa una función cuadrática?</p>
+        <label><input type="radio" name="q1" value="0"> f(x)=3x+2</label>
+        <label><input type="radio" name="q1" value="1"> f(x)=2x²−5x+1</label>
+        <label><input type="radio" name="q1" value="0"> f(x)=4/x</label></div>
+
+      <div class="quiz-q"><p><strong>2.</strong> Si a es negativo, la parábola:</p>
+        <label><input type="radio" name="q2" value="1"> abre hacia abajo</label>
+        <label><input type="radio" name="q2" value="0"> abre hacia arriba</label></div>
+
+      <div class="quiz-q">
+        <p><strong>3.</strong> ¿Cuál es la factorización correcta de <strong>f(x)=x²−6x+8</strong>?</p>
+        <label><input type="radio" name="q3" value="1"> (x−2)(x−4)</label>
+        <label><input type="radio" name="q3" value="0"> (x+2)(x+4)</label>
+        <label><input type="radio" name="q3" value="0"> (x−1)(x−8)</label>
+        <label><input type="radio" name="q3" value="0"> (x−3)(x−5)</label>
+      </div>
+
+      <div class="quiz-q"><p><strong>4.</strong> Si las raíces son x₁=1 y x₂=3, el eje de simetría es:</p>
+        <label><input type="radio" name="q4" value="0"> x=4</label>
+        <label><input type="radio" name="q4" value="1"> x=2</label>
+        <label><input type="radio" name="q4" value="0"> x=−2</label></div>
+
+      <div class="quiz-q"><p><strong>5.</strong> En f(x)=x²−4x+3, el vértice es:</p>
+        <label><input type="radio" name="q5" value="1"> V(2,−1)</label>
+        <label><input type="radio" name="q5" value="0"> V(1,0)</label>
+        <label><input type="radio" name="q5" value="0"> V(3,0)</label></div>
+
+      <div class="quiz-q"><p><strong>6.</strong> Como a=1 en f(x)=x²−4x+3, la parábola:</p>
+        <label><input type="radio" name="q6" value="1"> abre hacia arriba</label>
+        <label><input type="radio" name="q6" value="0"> abre hacia abajo</label></div>
+
+      <div class="quiz-q"><p><strong>7.</strong> Para f(x)=x²−2x−3, ¿cuánto vale f(1)?</p>
+        <label><input type="radio" name="q7" value="0"> 4</label>
+        <label><input type="radio" name="q7" value="1"> −4</label>
+        <label><input type="radio" name="q7" value="0"> −2</label>
+        <label><input type="radio" name="q7" value="0"> 0</label></div>
+
+      <div class="quiz-q"><p><strong>8.</strong> Si una parábola tiene vértice V(3,1) y abre hacia abajo, el vértice representa:</p>
+        <label><input type="radio" name="q8" value="1"> un valor máximo</label>
+        <label><input type="radio" name="q8" value="0"> un valor mínimo</label>
+        <label><input type="radio" name="q8" value="0"> una raíz</label></div>
+
+      <div class="quiz-q"><p><strong>9.</strong> Un estudiante factoriza (x−3)(x−4)=0 y dice que las raíces son −3 y −4. ¿Cuál fue el error?</p>
+        <label><input type="radio" name="q9" value="1"> Cambió incorrectamente el signo al igualar cada factor a cero.</label>
+        <label><input type="radio" name="q9" value="0"> No debía factorizar.</label>
+        <label><input type="radio" name="q9" value="0"> Debía sumar las raíces.</label></div>
+
+      <div class="quiz-q"><p><strong>10.</strong> Una pelota toca el suelo en x=0 y x=6. ¿Qué representan esos valores?</p>
+        <label><input type="radio" name="q10" value="1"> Los puntos donde la altura es 0.</label>
+        <label><input type="radio" name="q10" value="0"> La altura máxima.</label>
+        <label><input type="radio" name="q10" value="0"> El eje de simetría.</label></div>
+
+      <button class="btn" type="submit">Calificar y enviar resultado</button>
+      <button class="btn secondary" type="reset" id="resetQuiz">Limpiar</button>
+      <div class="result" id="quizResult"></div>
+      <div class="send-status" id="sendStatus"></div>
+    </form>
+  </div>
+</div>
+</section>
+<section id="cierre"><div class="wrap"><div class="section-head"><div><span class="pill">7 · Cierre</span><h2>Ticket de salida</h2></div></div><p class="small" style="margin-bottom:16px">Las respuestas se mantienen solo mientras esta página esté abierta y se borran al recargar o cerrar.</p>
+    <div class="ticket-grid"><div class="card"><label for="t1"><strong>1.</strong> ¿Qué característica permite reconocer una función cuadrática?</label><textarea id="t1" name="ticket_1_no_store" autocomplete="off" placeholder="Escribe tu respuesta..."></textarea></div><div class="card"><label for="t2"><strong>2.</strong> ¿Qué información nos proporciona el vértice de una parábola?</label><textarea id="t2" name="ticket_2_no_store" autocomplete="off" placeholder="Escribe tu respuesta..."></textarea></div><div class="card"><label for="t3"><strong>3.</strong> Escribe una cosa que aprendiste y una que quieras reforzar.</label><textarea id="t3" name="ticket_3_no_store" autocomplete="off" placeholder="Escribe tu respuesta..."></textarea></div></div><div class="teacher-note"><strong>Nota de uso pedagógico:</strong> este recurso fue diseñado por la docente con apoyo de inteligencia artificial generativa. Los contenidos, ejemplos y actividades deben ser revisados y adaptados pedagógicamente antes de su implementación en el aula.</div></div></section>
+</main>
+<footer><div class="wrap"><strong>Explorando la parábola · Matemáticas</strong></div></footer>
+<script>
+function drawGridGraph(canvas,fn,opts={}){const ctx=canvas.getContext('2d'),W=canvas.width,H=canvas.height;ctx.clearRect(0,0,W,H);const xMin=opts.xMin??-6,xMax=opts.xMax??6,yMin=opts.yMin??-8,yMax=opts.yMax??12;const X=x=>(x-xMin)/(xMax-xMin)*W,Y=y=>H-(y-yMin)/(yMax-yMin)*H;ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);ctx.strokeStyle='#edf0f5';ctx.lineWidth=1;for(let x=Math.ceil(xMin);x<=Math.floor(xMax);x++){ctx.beginPath();ctx.moveTo(X(x),0);ctx.lineTo(X(x),H);ctx.stroke()}for(let y=Math.ceil(yMin);y<=Math.floor(yMax);y++){ctx.beginPath();ctx.moveTo(0,Y(y));ctx.lineTo(W,Y(y));ctx.stroke()}ctx.strokeStyle='#98a2b3';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(X(0),0);ctx.lineTo(X(0),H);ctx.stroke();ctx.beginPath();ctx.moveTo(0,Y(0));ctx.lineTo(W,Y(0));ctx.stroke();ctx.fillStyle='#667085';ctx.font='13px sans-serif';for(let x=Math.ceil(xMin);x<=Math.floor(xMax);x++){if(x!==0)ctx.fillText(x,X(x)+3,Y(0)-5)}for(let y=Math.ceil(yMin);y<=Math.floor(yMax);y+=2){if(y!==0)ctx.fillText(y,X(0)+5,Y(y)-3)}ctx.strokeStyle=opts.color||'#315efb';ctx.lineWidth=3;ctx.beginPath();let started=false;for(let px=0;px<=W;px++){const x=xMin+(px/W)*(xMax-xMin),y=fn(x),py=Y(y);if(Number.isFinite(py)&&py>-1000&&py<H+1000){if(!started){ctx.moveTo(px,py);started=true}else ctx.lineTo(px,py)}}ctx.stroke();(opts.points||[]).forEach(p=>{ctx.fillStyle=p.color||'#7c3aed';ctx.beginPath();ctx.arc(X(p.x),Y(p.y),6,0,Math.PI*2);ctx.fill();if(p.label){ctx.fillStyle='#344054';ctx.font='14px sans-serif';ctx.fillText(p.label,X(p.x)+9,Y(p.y)-9)}})}
+const aRange=document.getElementById('aRange'),aValue=document.getElementById('aValue'),formulaA=document.getElementById('formulaA');function updateA(){const a=parseFloat(aRange.value);aValue.textContent=a.toFixed(1).replace('.0','');formulaA.textContent=`f(x) = ${a.toFixed(1).replace('.0','')}x²`;drawGridGraph(document.getElementById('graphA'),x=>a*x*x,{xMin:-5,xMax:5,yMin:-10,yMax:12})}aRange.addEventListener('input',updateA);updateA();
+drawGridGraph(document.getElementById('graphExample'),x=>x*x-4*x+3,{xMin:-2,xMax:6,yMin:-4,yMax:10,points:[{x:2,y:-1,label:'V(2,−1)'},{x:1,y:0,label:'x=1'},{x:3,y:0,label:'x=3'},{x:0,y:3,label:'(0,3)'}]});
+const oldBallGraph=document.getElementById('graphBall');
+if(oldBallGraph){
+  drawGridGraph(oldBallGraph,t=>-5*t*t+20*t,{xMin:0,xMax:4.5,yMin:-2,yMax:22,color:'#7c3aed',points:[{x:2,y:20,label:'máximo (2,20)'},{x:4,y:0,label:'suelo (4,0)'}]});
+}
+let step=0;const steps=[...document.querySelectorAll('#guidedSteps .step')],stepCount=document.getElementById('stepCount');function renderStep(){steps.forEach((el,i)=>el.classList.toggle('active',i===step));stepCount.textContent=`${step+1} / ${steps.length}`;document.getElementById('prevStep').disabled=step===0;document.getElementById('nextStep').disabled=step===steps.length-1}document.getElementById('prevStep').addEventListener('click',()=>{if(step>0){step--;renderStep()}});document.getElementById('nextStep').addEventListener('click',()=>{if(step<steps.length-1){step++;renderStep()}});renderStep();
+const routeHints={
+  f1:{ok:'✅ Correcto. a es el coeficiente que acompaña a x².',no:'❌ Pista: busca el número que está justo delante de x².'},
+  f2:{ok:'✅ Correcto. Si a<0, abre hacia abajo.',no:'❌ Pista: a>0 abre hacia arriba y a<0 abre hacia abajo.'},
+  f3:{ok:'✅ Correcto. Las raíces son 2 y 4; su punto medio es 3.',no:'❌ Pista: calcula el punto medio entre 2 y 4.'},
+  f4:{ok:'✅ Correcto. Al reemplazar x=0 se obtiene y=2.',no:'❌ Pista: para el corte con Y, reemplaza x por 0.'},
+  f5:{ok:'✅ Correcto. Si abre hacia arriba, el vértice es un mínimo.',no:'❌ Pista: imagina una U y ubica su punto más bajo.'},
+  f6:{ok:'✅ Correcto. Puede ser cuadrática aunque no tenga raíces reales.',no:'❌ Pista: no cortar el eje X no cambia el grado de la función.'},
+  f7:{ok:'✅ Correcto. c=6.',no:'❌ Pista: c es el término independiente, el que no tiene x.'},
+  f8:{ok:'✅ Correcto. x²+2x−3 es cuadrática porque el mayor exponente es 2.',no:'❌ Pista: busca la expresión cuyo mayor exponente de x sea 2.'},
+  f9:{ok:'✅ Correcto. Cada raíz x se escribe como punto (x,0).',no:'❌ Pista: en los cortes con el eje x siempre y=0.'},
+  f10:{ok:'✅ Correcto. 3·4=12 y 3+4=7.',no:'❌ Pista: busca dos números que multipliquen 12 y sumen 7.'},
+  f11:{ok:'✅ Correcto. (−1+5)/2=2.',no:'❌ Pista: suma las raíces y divide entre 2.'},
+  f12:{ok:'✅ Correcto. f(2)=4−8+3=−1.',no:'❌ Pista: reemplaza x=2 respetando el orden de las operaciones.'},
+  f13:{ok:'✅ Correcto. Al abrir hacia abajo, el vértice es el valor máximo.',no:'❌ Pista: en una parábola ∩ el vértice queda en la parte más alta.'},
+  f14:{ok:'✅ Correcto. (2+8)/2=5.',no:'❌ Pista: el eje de simetría está a mitad de camino entre las raíces.'},
+  f15:{ok:'✅ Correcto. (1+7)/2=4.',no:'❌ Pista: calcula el promedio entre 1 y 7.'}
+};
+
+document.querySelectorAll('.choice').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const target=document.getElementById(btn.dataset.target);
+    const isCorrect=btn.dataset.answer==='correct';
+
+    // Marcar visualmente la opción seleccionada dentro de la misma pregunta.
+    const parent=btn.parentElement;
+    parent.querySelectorAll(`.choice[data-target="${btn.dataset.target}"]`).forEach(b=>{
+      b.style.outline='none';
+      b.style.background='#fff';
+    });
+    btn.style.outline=isCorrect ? '2px solid #16a34a' : '2px solid #dc2626';
+    btn.style.background=isCorrect ? '#f0fdf4' : '#fef2f2';
+
+    target.className=isCorrect ? 'feedback ok' : 'feedback no';
+    target.textContent=isCorrect ? routeHints[btn.dataset.target].ok : routeHints[btn.dataset.target].no;
+  });
+});
+
+// === CONFIGURACIÓN DE ENVÍO DE RESULTADOS ===
+// Pega aquí la URL que Google Apps Script te dará al desplegarlo como "Aplicación web".
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwzGI67FtZ9JnYiL0rLQ7vdVPfOXB1di5YkKZ5uJaOptyRHRe6otCkl2g9U2_lKboW7/exec";
+
+
+const groupInput=document.getElementById('studentGroup');
+if(groupInput){
+  groupInput.addEventListener('input',()=>{
+    groupInput.value=groupInput.value.replace(/\s+/g,'');
+  });
+  groupInput.addEventListener('invalid',()=>{
+    if(groupInput.validity.patternMismatch){
+      groupInput.setCustomValidity('Escribe el grupo con formato 9-1, 9-2, 9-3...');
+    }else{
+      groupInput.setCustomValidity('');
+    }
+  });
+  groupInput.addEventListener('change',()=>groupInput.setCustomValidity(''));
+}
+
+function selectedAnswerText(questionName){
+  const selected = document.querySelector(`input[name="${questionName}"]:checked`);
+  if(!selected) return "";
+  const label = selected.closest("label");
+  return label ? label.textContent.trim() : selected.value;
+}
+
+document.getElementById('quizForm').addEventListener('submit', async e=>{
+  e.preventDefault();
+
+  const name=document.getElementById('studentName').value.trim();
+  const group=document.getElementById('studentGroup').value.trim();
+  const box=document.getElementById('quizResult');
+  const sendBox=document.getElementById('sendStatus');
+
+  if(!name){
+    box.style.display='block';
+    box.style.background='#fff7ed';
+    box.style.color='#9a3412';
+    box.style.border='1px solid #fed7aa';
+    box.textContent='Escribe tu nombre completo antes de enviar la evaluación.';
+    return;
+  }
+
+  let score=0,answered=0;
+  for(let i=1;i<=10;i++){
+    const q=document.querySelector(`input[name=q${i}]:checked`);
+    if(q){answered++;score+=Number(q.value);}
+  }
+
+  box.style.display='block';
+  if(answered<10){
+    box.style.background='#fff7ed';
+    box.style.color='#9a3412';
+    box.style.border='1px solid #fed7aa';
+    box.textContent='Te faltan preguntas por responder. Completa las diez antes de enviar.';
+    return;
+  }
+
+  const percent=Math.round((score/10)*100);
+
+  if(score>=9){
+    box.style.background='#ecfdf3';
+    box.style.color='#166534';
+    box.style.border='1px solid #bbf7d0';
+    box.textContent=`¡Excelente, ${name}! Obtuviste ${score}/10 (${percent}%).`;
+  }else if(score>=6){
+    box.style.background='#eff6ff';
+    box.style.color='#1d4ed8';
+    box.style.border='1px solid #bfdbfe';
+    box.textContent=`${name}, vas por buen camino. Obtuviste ${score}/10 (${percent}%). Repasa y vuelve a intentarlo.`;
+  }else{
+    box.style.background='#fff7ed';
+    box.style.color='#9a3412';
+    box.style.border='1px solid #fed7aa';
+    box.textContent=`${name}, obtuviste ${score}/10 (${percent}%). Regresa a la ruta de apoyo y practica nuevamente.`;
+  }
+
+  const localKey='fc_attempts_'+name.toLowerCase().replace(/\s+/g,'_');
+  const localAttempt=Number(localStorage.getItem(localKey)||0)+1;
+  localStorage.setItem(localKey,String(localAttempt));
+
+  const payload={
+    nombre:name,
+    grupo:group,
+    puntaje:String(score),
+    total:"10",
+    porcentaje:String(percent),
+    intentoLocal:String(localAttempt),
+    q1:selectedAnswerText('q1'),
+    q2:selectedAnswerText('q2'),
+    q3:selectedAnswerText('q3'),
+    q4:selectedAnswerText('q4'),
+    q5:selectedAnswerText('q5'),
+    q6:selectedAnswerText('q6'),
+    q7:selectedAnswerText('q7'),
+    q8:selectedAnswerText('q8'),
+    q9:selectedAnswerText('q9'),
+    q10:selectedAnswerText('q10')
+  };
+
+  sendBox.style.display='block';
+
+  if(!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("PEGA_AQUI")){
+    sendBox.style.background='#fff7ed';
+    sendBox.style.color='#9a3412';
+    sendBox.style.border='1px solid #fed7aa';
+    sendBox.textContent='⚠️ La evaluación fue calificada, pero la docente todavía no ha conectado la página con Google Sheets.';
+    return;
+  }
+
+  try{
+    sendBox.style.background='#eff6ff';
+    sendBox.style.color='#1d4ed8';
+    sendBox.style.border='1px solid #bfdbfe';
+    sendBox.textContent='Enviando resultado a la docente...';
+
+    const response=await fetch(GOOGLE_SCRIPT_URL,{
+      method:'POST',
+      body:new URLSearchParams(payload)
+    });
+
+    if(!response.ok) throw new Error('No se pudo enviar');
+
+    let data={};
+    try{ data=await response.json(); }catch(_){}
+
+    sendBox.style.background='#ecfdf3';
+    sendBox.style.color='#166534';
+    sendBox.style.border='1px solid #bbf7d0';
+    sendBox.textContent=data.intento
+      ? `✅ Resultado enviado a la docente. Este es tu intento #${data.intento}.`
+      : '✅ Resultado enviado a la docente correctamente.';
+  }catch(error){
+    sendBox.style.background='#fff7ed';
+    sendBox.style.color='#9a3412';
+    sendBox.style.border='1px solid #fed7aa';
+    sendBox.textContent='⚠️ Tu evaluación fue calificada, pero no se pudo enviar. Revisa la conexión a internet o avisa a la docente.';
+  }
+});
+
+document.getElementById('resetQuiz').addEventListener('click',()=>{
+  const box=document.getElementById('quizResult');
+  const sendBox=document.getElementById('sendStatus');
+  box.style.display='none'; box.textContent='';
+  sendBox.style.display='none'; sendBox.textContent='';
+});
+
+
+
+// RETO DE LA PISTA DE SKATE
+const skaterCanvas=document.getElementById("graphSkater");
+document.querySelectorAll(".live-check").forEach(inp=>{
+  inp.addEventListener("input",()=>{
+    const mark=inp.parentElement.querySelector(".check-mark");
+    const raw=inp.value.trim();
+    inp.classList.remove("correct","incorrect");
+    mark.className="check-mark";
+    mark.textContent="";
+    if(raw==="") return;
+
+    if(Number(raw)===Number(inp.dataset.ans)){
+      inp.classList.add("correct");
+      mark.classList.add("ok");
+      mark.textContent="✅";
+    }else{
+      inp.classList.add("incorrect");
+      mark.classList.add("bad");
+      mark.textContent="❌";
+    }
+  });
+});
+
+document.getElementById("checkReto")?.addEventListener("click",()=>{
+  const n=s=>String(s||"").toLowerCase().replace(/\s+/g,"").replace(/−/g,"-");
+
+  const fields=[
+    document.getElementById("retoFactor"),
+    document.getElementById("retoRaices"),
+    document.getElementById("retoCortes"),
+    document.getElementById("retoEje"),
+    document.getElementById("retoVertice"),
+    document.getElementById("retoApertura")
+  ];
+
+  const allTextAnswered=fields.every(el=>el && el.value.trim()!=="");
+  const decisionAnswered=document.getElementById("retoDecision").value!=="";
+  const tableInputs=[...document.querySelectorAll(".reto-input")];
+  const tableComplete=tableInputs.every(inp=>inp.value.trim()!=="");
+  const tableAllCorrect=tableInputs.every(inp=>Number(inp.value)===Number(inp.dataset.ans));
+
+  const fb=document.getElementById("retoFeedback");
+
+  // No revelar la gráfica hasta completar todo y tener la tabla 100% correcta.
+  if(!allTextAnswered || !decisionAnswered || !tableComplete || !tableAllCorrect){
+    fb.className="feedback no";
+    let missing=[];
+    if(!allTextAnswered) missing.push("completar A–F");
+    if(!tableComplete) missing.push("llenar toda la tabla");
+    else if(!tableAllCorrect) missing.push("corregir la tabla hasta tener todos los ✅ verdes");
+    if(!decisionAnswered) missing.push("responder H");
+    fb.innerHTML="🔒 La gráfica sigue bloqueada. Falta: <strong>"+missing.join(", ")+"</strong>.";
+    return;
+  }
+
+  let ok=0,total=0;
+  const factor=n(document.getElementById("retoFactor").value);
+  const raices=n(document.getElementById("retoRaices").value);
+  const cortes=n(document.getElementById("retoCortes").value);
+  const eje=n(document.getElementById("retoEje").value);
+  const vert=n(document.getElementById("retoVertice").value);
+  const aper=n(document.getElementById("retoApertura").value);
+
+  total++; if(factor.includes("(x-3)(x-7)")||factor.includes("(x-7)(x-3)")) ok++;
+  total++; if(raices.includes("3")&&raices.includes("7")) ok++;
+  total++; if(cortes.includes("(3,0)")&&cortes.includes("(7,0)")) ok++;
+  total++; if(eje.includes("x=5")||eje==="5") ok++;
+  total++; if(vert.includes("(5,-4)")) ok++;
+  total++; if(aper.includes("arriba")||aper.includes("positiv")) ok++;
+
+  // La tabla ya está verificada completamente correcta.
+  total += tableInputs.length;
+  ok += tableInputs.length;
+
+  total++;
+  if(document.getElementById("retoDecision").value==="si") ok++;
+
+  // Desbloquear y dibujar gráfica solo ahora.
+  document.getElementById("missionLock").style.display="none";
+  skaterCanvas.classList.remove("mission-graph-locked");
+  document.getElementById("missionGraphNote").classList.remove("mission-graph-locked");
+
+  drawGridGraph(skaterCanvas,x=>x*x-10*x+21,{
+    xMin:1,xMax:9,yMin:-6,yMax:7,color:"#7c3aed",
+    points:[
+      {x:3,y:0,label:"(3,0)"},
+      {x:4,y:-3,label:"(4,−3)"},
+      {x:5,y:-4,label:"(5,−4)"},
+      {x:6,y:-3,label:"(6,−3)"},
+      {x:7,y:0,label:"(7,0)"}
+    ]
+  });
+
+  if(ok===total){
+    fb.className="feedback ok";
+    fb.innerHTML="✅ <strong>¡Misión completada!</strong> Todo está correcto y la gráfica ha sido desbloqueada.";
+  }else{
+    fb.className="feedback no";
+    fb.innerHTML=`✅ La tabla está completamente correcta y la gráfica ya fue desbloqueada. En el resto de la misión tienes ${ok} de ${total} elementos correctos. Usa la gráfica para revisar A–F y H.`;
+  }
+});
+
+
+
+function limpiarTicketSalida(){
+  ['ticket_t1','ticket_t2','ticket_t3'].forEach(k=>localStorage.removeItem(k));
+  ['t1','t2','t3'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.value='';
+  });
+}
+document.addEventListener('DOMContentLoaded',limpiarTicketSalida);
+window.addEventListener('pageshow',limpiarTicketSalida);
+
+window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-window.innerHeight,p=max>0?(window.scrollY/max)*100:0;document.getElementById('progress').style.width=p+'%'});
+</script>
+</body>
+</html>
